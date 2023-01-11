@@ -1,0 +1,74 @@
+﻿@model MvcDemoProject.Models.UsertRegistrationModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4 class="text-center m-3">Create New Account</h4>
+<hr />
+@if(ViewBag.x==-1)
+{
+<script>
+    alert("Please Register Or Log In  Before  Adding To Cart or Order")
+</script>
+}
+
+
+
+        <div  class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 border p-2 mt-5">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>    <label asp-for="userName" class="control-label"></label>
+
+                    <input asp-for="userName" class="form-control" placeholder="Enter User Name" />
+                <span asp-validation-for="userName" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                <label asp-for="userEmail" class="control-label"></label>
+
+                <input asp-for="userEmail" class="form-control" placeholder="Enter Your Email"/>
+                <span asp-validation-for="userEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" placeholder="Enter Password"/>
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+           
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-3">
+                            <a asp-action="LogIn" class="btn btn-primary mt-3">LogIn</a>
+                        </div>
+                        <div class="col-6"></div>
+                        <div class="col-3 text-end">
+                            <input type="submit" value="Register" class="btn btn-success mt-3 ">
+                        </div>
+
+                  </div>
+        </form>
+        @if (ViewBag.num == 1)
+        {
+            <script>
+                alert("The Email Is Alread Present")
+        </script>
+        }
+    </div>
+</div>
+
+<div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+      

@@ -1,0 +1,61 @@
+﻿@model MvcDemoProject.Models.UsertRegistrationModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+
+@if (ViewBag.x == "?num1=-11")
+{
+    <script>
+
+        alert("Fund Added Successfully");
+
+    </script>
+}
+<hr />
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 border p-2 mt-5  text-center text-dark" style="background-color:floralwhite; mb-5">
+
+
+
+            <hr />
+
+            <h3>
+
+                @Html.DisplayNameFor(model => model.wallet) :
+
+                @Html.DisplayFor(model => model.wallet)<br />
+
+            </h3>
+            <hr />
+            <div class="row ">
+                <div class="col-3">
+
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-primary mt-3">Back</a>
+
+                </div>
+
+                <div class="col-6">
+                </div>
+
+                <div class="col-3 text-end">
+
+                    <a asp-action="AddMoney" class="btn btn-success mt-3">Add</a>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+

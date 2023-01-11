@@ -1,0 +1,64 @@
+﻿@model MvcDemoProject.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h3 class="text-center">Edit</h3>
+
+
+<hr />
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 border p-2 mt-5">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label"></label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="userName" class="control-label"></label>
+                    <input asp-for="userName" class="form-control" />
+                    <span asp-validation-for="userName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="userEmail" class="control-label"></label>
+                    <input asp-for="userEmail" class="form-control" />
+                    <span asp-validation-for="userEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+
+                    <label asp-for="password" class="control-label"></label>
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-3">
+                            <a asp-action="Details" class="btn btn-primary mt-3">Back</a>
+                        </div>
+                        <div class="col-6"></div>
+                        <div class="col-3 text-end">
+                            <input type="submit" value="Save" class="btn btn-success mt-3" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

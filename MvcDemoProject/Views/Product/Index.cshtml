@@ -1,0 +1,87 @@
+﻿@model IEnumerable<MvcDemoProject.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Products</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary ms-3">Add New Products</a>
+</p>
+
+<table class="table table-bordered  text-white">
+    <thead class="text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pimgUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+ 
+@foreach (var item in Model) {
+        <tr class="text-center">
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pName)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.pimgUrl)" alt="Laptop Image" width="70" height="60">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isDeleted)
+            </td>
+            <td>
+                   
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>

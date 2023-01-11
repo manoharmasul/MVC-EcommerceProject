@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - MvcDemoProject</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/MvcDemoProject.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body class="text-white" style="background-color:#0E1526;">
+    <div class="container-fluid">
+            <header>
+                <div class="container-fluid ">
+
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  text-white border-bottom box-shadow m-2 " style="background-color:darkslategrey">
+
+                     <div class="container-fluid">
+
+                        <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://as2.ftcdn.net/v2/jpg/03/65/21/85/1000_F_365218592_LhlZDlqweKhz5CxuLE4CpXJCyUSuLgUX.jpg" alt="profile logo" class="rounded" style="width:40px;height:30px">    Home</a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+
+                            <span class="navbar-toggler-icon"></span>
+
+                        </button>
+
+
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                              <ul class="navbar-nav flex-grow-1">
+
+                                    @if (!String.IsNullOrEmpty(Context.Request.HttpContext.Session.GetString("userName")) && (Context.Request.HttpContext.Session.GetString("userRole")) == "Admin")
+                                    {
+
+                                            <li class="nav-item">
+                                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                            </li>
+
+
+                                            <li class="nav-item">
+                                                <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="Index"><span class="text-white">ManageProducts</span></a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link text-white" asp-area="" asp-controller="Order" asp-action="Index"><span class="text-white">GetAllOrders</span></a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="GetAllUsers"><span class="text-white">GetAllUsers</span></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-white" asp-area="" asp-controller="product" asp-action="GetProductsCustomer">Products</a>
+                                            </li>
+
+                                            <div class="collapse navbar-collapse justify-content-end">
+
+                                            <li class="nav-item ">
+
+                                                <a class="nav-link navbar-brand text-white" asp-area="" asp-controller="Cart" asp-action="ViewCart"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMiJN8rAUAhXgYYHeLS2Fasmz3PnW8c9PLtQNu8rGsE_5INxnrCjzOOpO_-UnkSUOhFCQ&usqp=CAU" alt="profile logo" class="rounded-pill" style="width:25px;height:25px">View Cart</a>
+
+                                            </li>
+                                            <li class="nav-item ">
+
+                                                <a class="nav-link text-white" asp-area="" asp-controller="Order" asp-action="MyOrders">My Orders</a>
+
+                                            </li>
+
+                                            <li class="nav-item dropdown ">
+
+                                                <a class="nav-link text-white " href="#" role="button" data-bs-toggle="dropdown"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSos8WJJwI6qi-oyEqumgt5myV32u4aP3FvUA&usqp=CAU" alt="profile logo" class="rounded-pill" style="width:30px;height:30px">Welcome :@Context.Request.HttpContext.Session.GetString("userName")</a>
+
+                                                <ul class="dropdown-menu text-primary">
+
+                                                    <li><a class="dropdown-item text-center" asp-area="" asp-controller="User" asp-action="Details"> My Profile</a></li>
+
+                                                    <li><a class="dropdown-item text-center" asp-area="" asp-controller="User" asp-action="GetWallet">Wallet</a></li>
+
+                                                    <li><a class="dropdown-item text-center" href="#">Change Password</a></li>
+
+                                                    <li><a class="dropdown-item text-center" href="#">Security</a></li>
+
+                                                    <li class="nav-item">
+
+                                                        <a class="dropdown-item text-center" asp-area="" asp-controller="User" asp-action="Logout">Log Out</a>
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+                                     </div>
+
+
+
+                                   }
+                                        else if (!String.IsNullOrEmpty(Context.Request.HttpContext.Session.GetString("userName")) && (Context.Request.HttpContext.Session.GetString("userRole")) == "Customer")
+                                        {
+                                    <li class="nav-item">
+
+                                        <a class="nav-link text-white" asp-area="" asp-controller="product" asp-action="GetProductsCustomer">MyShop</a>
+
+                                    </li>
+
+
+                                    <div class="collapse navbar-collapse justify-content-end">
+
+                                        <li class="nav-item " style="padding-left:640px">
+
+                                            <a class="nav-link navbar-brand text-white" asp-area="" asp-controller="Cart" asp-action="ViewCart"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMiJN8rAUAhXgYYHeLS2Fasmz3PnW8c9PLtQNu8rGsE_5INxnrCjzOOpO_-UnkSUOhFCQ&usqp=CAU" alt="profile logo" class="rounded-pill" style="width:25px;height:25px">View Cart</a>
+
+                                        </li>
+
+
+                                        <li class="nav-item ">
+
+                                            <a class="nav-link text-white" asp-area="" asp-controller="Order" asp-action="MyOrders">My Orders</a>
+
+                                        </li>
+
+
+                                        <li class="nav-item dropdown ">
+
+
+                                            <a class="nav-link text-white " href="#" role="button" data-bs-toggle="dropdown"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSos8WJJwI6qi-oyEqumgt5myV32u4aP3FvUA&usqp=CAU" alt="profile logo" class="rounded-pill" style="width:30px;height:30px">Welcome :@Context.Request.HttpContext.Session.GetString("userName")</a>
+
+                                            <ul class="dropdown-menu">
+
+                                                <li><a class="dropdown-item text-center" asp-area="" asp-controller="User" asp-action="Details"> My Profile</a></li>
+                                                <li><a class="dropdown-item text-center" asp-area="" asp-controller="User" asp-action="GetWallet">Wallet</a></li>
+                                                <li><a class="dropdown-item text-center" href="#">Change Password</a></li>
+                                                <li><a class="dropdown-item text-center" href="#">Security</a></li>
+                                                <li class="nav-item">
+                                                    <a class="dropdown-item text-center" asp-area="" asp-controller="User" asp-action="Logout">Log Out</a>
+                                                </li>
+
+                                            </ul>
+
+
+                                        </li>
+                                    </div>
+
+
+                                            @*  <li class="nav-item" style="padding-left:550px">
+                                <a class="navbar-brand text-white" href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSos8WJJwI6qi-oyEqumgt5myV32u4aP3FvUA&usqp=CAU" alt="profile logo" class="rounded-pill" style="width:30px;height:30px">Welcome :@Context.Request.HttpContext.Session.GetString("userName")</a>
+                                </li>*@
+
+                                            @* <li class="nav-item " style="padding-left:350px">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Welcome :@Context.Request.HttpContext.Session.GetString("userName")</a>
+                                </li>*@
+
+
+                                        }
+                                        @if (String.IsNullOrEmpty(Context.Request.HttpContext.Session.GetString("userName")))
+                                        {
+                                    <div class="collapse navbar-collapse justify-content-end">
+
+
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Create"><span class="text-primar"><i class="fa fa-id-badge" aria-hidden="true"></i> Sign Up</span></a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Login"><i class="fa fa-power-off" aria-hidden="true"></i> LogIn</a>
+                                        </li>
+
+                                    </div>
+                                        }
+                             </ul>
+                      </div>
+                </nav>
+            </div>
+           
+        </header>
+    </div>
+   
+    <div class="container-fluid  text-white align-content-md-center">
+        <main role="main" class="">
+                @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+
+        <div class="container-fluid  text-white ">
+
+            <div class="row" style="height:50%">
+
+                <div class="col-md-4 mt-0 text-center">
+
+                    <li class="">
+
+                        <a class="" asp-area="" asp-controller="Home" asp-action="AboutUs"><span class="text-white">AboutUs</span></a>
+
+                    </li>
+                </div>
+
+                <div class="col-md-4 mt-0 text-center">
+
+                    <li class="">
+
+                        <a class="" asp-area="" asp-controller="Home" asp-action="ContactUs"><span class="text-white">ContactUs</span></a>
+
+                    </li>
+
+
+                </div>
+
+                <div class="col-md-4 mt-0 text-center">
+
+                    <li class="">
+
+                        <a class="" asp-area="" asp-controller="Home" asp-action="Privacy"><span class="text-white">Privacy</span></a>
+                    </li>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
+    
+
+</body>
+
+</html>

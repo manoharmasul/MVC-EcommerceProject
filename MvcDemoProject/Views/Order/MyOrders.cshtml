@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MvcDemoProject.Models.MayOrders>
+
+@{
+    ViewData["Title"] = "MyOrders";
+}
+
+
+
+<div class="container-fluid text-center mt-5">
+    <h4 class="text-center text-white">My Orders</h4>
+</div>
+@if (Model == null)
+{
+    <div class="container-fluid text-center mt-5 text-white">
+        <h5>You Do Not Have Any Order History</h5>
+    </div>
+}
+else
+{
+<table class="table  table-bordered text-white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pName)
+            </th>
+                <td>
+                    @Html.DisplayNameFor(model => model.Qty)
+                </td>
+            <th>
+                @Html.DisplayNameFor(model => model.totalAmmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orderStatus)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+       
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pName)
+            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Qty)
+                    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalAmmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderStatus)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
+}
+

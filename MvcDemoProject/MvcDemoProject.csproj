@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="Z:\MVC DEMO Order 29-11-2022\MvcDemoProject\MvcDemoProject\Repository\Interface\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Z:\MVC DEMO Order 29-11-2022\MvcDemoProject\MvcDemoProject\Repository\Interface\.editorconfig" />
+  </ItemGroup>
+
+</Project>

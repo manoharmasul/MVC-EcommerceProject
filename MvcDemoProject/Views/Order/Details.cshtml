@@ -1,0 +1,101 @@
+﻿@model MvcDemoProject.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 class="text-center">Details</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6  offset-md-3">
+            <dl class="row ">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.custName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.custName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.pName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.pName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Qty)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Qty)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.totalAmmount)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.totalAmmount)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.orderStatus)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.orderStatus)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.createdBy)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.createdBy)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.modifiedBy)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.modifiedBy)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.createdDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.createdDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.modifiedDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.modifiedDate)
+                </dd>
+                <dt class="col-sm-2">
+
+                    @Html.DisplayNameFor(model => model.isDeleted)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.isDeleted)
+                </dd>
+                <dd class="col-sm-10">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-3">
+                                <a asp-action="Index" class=" btn btn-primary">Back </a>
+                            </div>
+
+                            <div class="col-3" style="padding-left=550px">
+                                @Html.ActionLink("Edit", "Edit", new {  id = Model.Id }, new {@class="btn btn-success md-5", data_val="abc"} )
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            </dl>
+        </div>
+
+    </div>
+</div>
+</div>
+

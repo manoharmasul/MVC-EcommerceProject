@@ -1,0 +1,103 @@
+﻿@model IEnumerable<MvcDemoProject.Models.User>
+
+@{
+    ViewData["Title"] = "GetAllUsers";
+}
+
+<h1 class="text-center">Get All Users</h1>
+
+
+<table class="table  table-bordered text-white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modifiedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modifiedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isDeleted)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

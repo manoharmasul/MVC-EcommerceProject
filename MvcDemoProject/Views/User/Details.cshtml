@@ -1,0 +1,62 @@
+﻿@model MvcDemoProject.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+@if (ViewBag.y == "?num=-11")
+{
+    <script>
+        alert('Profile Updated SuccessFully....!');
+    </script>
+}
+<h1 class=text-center>My Profile</h1>
+
+<div>
+
+    <hr />
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-4 border border-3 p-2 mt-5">
+
+
+                @Html.DisplayNameFor(model => model.Id) :
+
+                @Html.DisplayFor(model => model.Id)<br />
+                <hr />
+                @Html.DisplayNameFor(model => model.userName) :
+
+                @Html.DisplayFor(model => model.userName)<br />
+                <hr />
+                @Html.DisplayNameFor(model => model.userEmail) :
+
+                @Html.DisplayFor(model => model.userEmail)<br />
+                <hr />
+                @Html.DisplayNameFor(model => model.password) :
+
+                @Html.DisplayFor(model => model.password)<br />
+
+                <hr />
+
+
+                <div class="row">
+                    <div class="col-3">
+                        <a asp-action="Index" asp-controller="Home" class="btn btn-primary ">Back</a>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-3 text-end">
+                        @Html.ActionLink("Edit", "Edit", new {  id = Model.Id},  new {@class="btn btn-success ms-2 ", data_val="abc"})
+
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>

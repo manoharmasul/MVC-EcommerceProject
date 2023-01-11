@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MvcDemoProject.Models.GetOrders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Orders List</h1>
+
+<p>
+    @* <a asp-action="Create" class="btn btn-primary">Add Order</a>*@
+</p>
+<table class="table  table-bordered text-white">
+    <thead>
+        <tr>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.custName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pName)
+            </th>
+               <th>
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalAmmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orderStatus)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.createdBy)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedDate)
+            </th>
+                @*   <th>
+                @Html.DisplayNameFor(model => model.isDeleted)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                @*  <td>
+                @Html.DisplayFor(modelItem => item.Id)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.custName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pName)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalAmmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderStatus)
+            </td>
+                @* <td>
+                @Html.DisplayFor(modelItem => item.createdBy)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedDate)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.isDeleted)
+            </td>*@
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id },new {@class="btn btn-primary"}) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id  },new {@class="btn btn-success"}) |
+                    @Html.ActionLink("Delete", "Delete", new {id=item.Id  },new {@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
