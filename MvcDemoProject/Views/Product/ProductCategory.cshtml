@@ -4,7 +4,7 @@
     ViewData["Title"] = "ProductSearch";
 }
 <body>
-    <div class="container-fluid mt-3">
+  <div class="container-fluid mt-3">
 
 
         @if (ViewBag.num == -1)
@@ -34,93 +34,95 @@
             <img src="https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/disappointed-face_1f61e.gif" alt="smily image" class="img-responsive center-block d-block mx-auto" height="90" width="90">
             <h2 class="text-center">No Result Found....!</h2>
         }
-        else
-        {
-            <div class="row ms-0">
-                @{
+     else
+     {
+        <div class="row ms-0">
+       @{
+           @foreach (var item in Model)
+           {
+             <br />
+             <br />
+             <br />
+             var count = 0;
+
+              @if (item.pimgUrl != null)
+              {
+
+                string m1, m2, m3;
+
+                var images = item.pimgUrl.Split(",");
+
+                m1 = images[0];
+
+                 <div class="col-3 mt-5">
+
+                    <div class="card text-dark ms-3 me-3" style="width:320px;height:600px">
+
+                      <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:320px;height:320px;" class="align-content-center">
+
+                       <div class="card-body">
+
+                          Model name: @Html.DisplayFor(modelItem => item.pName)<br>
+                          Price: @Html.DisplayFor(modelItem => item.price)<br>
+                          About: @Html.DisplayFor(modelItem => item.Specification)
+
+                       </div>
+
+                       <div class="card-footer">
+
+                          <div class="row">
+
+                             <div class="col-6">
+
+                               @Html.ActionLink("Add Cart", // <-- Link text
+
+                               "AddToCart","Cart",
+
+                               // <-- Action Method Name
+
+                               new { id=item.Id}, // <-- Route arguments
+
+                               new {@class="btn btn-warning"} // <-- htmlArguments
+
+                               )
+
+                             </div>   
+                                         
+                             <div class="col-6">
 
 
-                    @foreach (var item in Model)
-                    {
-                        <br />
-                        <br />
-                        <br />
+                                @Html.ActionLink("Details", // <-- Link text
 
-                        var count = 0;
+                                "DetailsAction",
 
-                        @if (item.pimgUrl != null)
-                        {
+                                "Product",
 
-                            string m1, m2, m3;
+                                // <-- Action Method Name
 
-                            var images = item.pimgUrl.Split(",");
+                                new { id=item.Id}, // <-- Route arguments
 
-                             m1 = images[0];
+                                new {@class="btn btn-success ms-5", data_val="abc"}  // <-- htmlArguments
 
-                              <div class="col-4 mt-5">
+                                )
 
-                                    <div class="card text-dark" style="width:400px;height:700px">
-                                        <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:400px;height:500px;">
-                                            <div class="card-body">
+                             </div>
 
-                                              Model name: @Html.DisplayFor(modelItem => item.pName)<br>
-                                              Price: @Html.DisplayFor(modelItem => item.price)<br>
-                                              About: @Html.DisplayFor(modelItem => item.Specification)
+                          </div>
 
-                                            </div>
-                                            <div class="card-footer">
+                       </div>
 
-                                                 <div class="row">
+                    </div>
 
-                                                     <div class="col-4">
-
-                                                           @Html.ActionLink("Add Cart", // <-- Link text
-
-                                                           "AddToCart","Cart",
-
-                                                           // <-- Action Method Name
-
-                                                           new { id=item.Id}, // <-- Route arguments
-
-                                                           new {@class="btn btn-warning"} // <-- htmlArguments
-
-                                                           )
-
-                                                     </div>
-                                                     <div class="col-4">
-
-                                                     </div>
-                                                     <div class="col-4">
-
-
-                                                         @Html.ActionLink("Details", // <-- Link text
-
-                                                         "DetailsAction",
-
-                                                         "Product",
-
-                                                         // <-- Action Method Name
-
-                                                         new { id=item.Id}, // <-- Route arguments
-
-                                                         new {@class="btn btn-success ms-4", data_val="abc"}  // <-- htmlArguments
-
-                                                         )
-
-                                                     </div>
-                                                 </div>
-                                            </div>
-                                    </div>
-
-                              </div>
-                        }
+                 </div>
+              }
 
 
 
-                    }
-                }
-            </div>
+           }
         }
-    </div>
+        </div>
+     }
+
+  </div>
 </body>
 

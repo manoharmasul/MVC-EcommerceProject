@@ -84,82 +84,94 @@
     <div class="row justify-content-center">
     
 
-                <div class="row ms-0">
-                    @{
+         <div class="row ms-0">
+        @{
 
 
-                        @foreach (var item in Model)
-                        {
-                                <br />
-                                <br />
-                                <br />
+             @foreach (var item in Model)
+             {
+                 <br />
+                 <br />
+                 <br />
 
-                            var count = 0;
+                var count = 0;
 
-                                @if (item.pimgUrl != null)
-                                {
+                 @if (item.pimgUrl != null)
+                 {
 
-                                    string m1, m2, m3;
+                    string m1, m2, m3;
 
-                                    var images = item.pimgUrl.Split(",");
+                    var images = item.pimgUrl.Split(",");
 
-                                    m1 = images[0];
+                     m1 = images[0];
 
-                                        <div class="col-4 mt-5">
+                     <div class="col-3 mt-5">
 
-                                                <div class="card text-dark" style="width:400px;height:700px">
+                         <div class="card text-dark ms-3 me-3" style="width:300px;height:600px">
 
-                                                    <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:400px;height:470px;">
+                            <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:300px;height:320px;">
 
-                                                        <div class="card-body">
+                               <div class="card-body">
 
-                                                            Model name: @Html.DisplayFor(modelItem => item.pName)<br>
-                                                            Price: @Html.DisplayFor(modelItem => item.price)<br>
-                                                            About: @Html.DisplayFor(modelItem => item.Specification)
-
-
-                                                        </div>
-                                                        <div class="card-footer">
-
-                                                                <div class="row">
-                                                                            <div class="col-4">
-
-                                                                                         @Html.ActionLink("Add Cart", // <-- Link text
-                                                                                        "AddToCart","Cart",
-
-                                                                                        // <-- Action Method Name
-                                                                                        new { id=item.Id}, // <-- Route arguments
-                                                                                        new {@class="btn btn-warning"} // <-- htmlArguments
-                                                                                        )
-
-                                                                            </div>
-                                                                                    <div class="col-4">
-                                                                                    </div>
-                                                                            <div class="col-4">
+                                  Model name: @Html.DisplayFor(modelItem => item.pName)<br>
+                                  Price: @Html.DisplayFor(modelItem => item.price)<br>
+                                  About: @Html.DisplayFor(modelItem => item.Specification)
 
 
-                                                                                                 @Html.ActionLink("Details", // <-- Link text
-                                                                                                "DetailsAction",
-                                                                                                "Product",
-                                                                                                // <-- Action Method Name
-                                                                                                new { id=item.Id}, // <-- Route arguments
-                                                                                                new {@class="btn btn-success ms-4", data_val="abc"}  // <-- htmlArguments
-                                                                                                )
+                               </div>
 
-                                                                            </div>
-                                                                </div>
-                                                        </div>
-                                                </div>
+                              <div class="card-footer">
 
-                                        </div>
-                                }
+                                  <div class="row">
 
+                                      <div class="col-6">
 
+                                         @Html.ActionLink("Add Cart", // <-- Link text
 
-                        }
-                    }
-                </div>
-        </div>
+                                         "AddToCart","Cart",
+
+                                          // <-- Action Method Name
+
+                                          new { id=item.Id}, // <-- Route arguments
+
+                                          new {@class="btn btn-warning"} // <-- htmlArguments
+
+                                          )
+
+                                       </div>
+                                                                                
+                                      <div class="col-6">
+
+                                          @Html.ActionLink("Details", // <-- Link text
+
+                                          "DetailsAction",
+
+                                          "Product",
+
+                                         // <-- Action Method Name
+
+                                          new { id=item.Id}, // <-- Route arguments
+
+                                         new {@class="btn btn-success ms-5", data_val="abc"}  // <-- htmlArguments
+
+                                         )
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                         </div>
+
+                     </div>
+
+                 }
+
+             }
+         }
+         </div>
+    </div>
 
  </div>
 

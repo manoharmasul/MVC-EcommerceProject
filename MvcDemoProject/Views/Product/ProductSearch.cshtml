@@ -4,110 +4,135 @@
     ViewData["Title"] = "ProductSearch";
 }
 <body>
-        <div class="container-fluid mt-3">
+   <div class="container-fluid mt-3">
 
 
-                @if (ViewBag.num == -1)
-                {
-                    <script>
-                        alert("please enter search  text")
-                    </script>
-                }
+      @if (ViewBag.num == -1)
+      {
+
+        <script>
+
+          alert("please enter search  text")
+
+        </script>
+
+      }
 
        
-                <form asp-controller="Product" asp-action="ProductSearch" class="mb-5 ms-5">
-                    <p>
+      <form asp-controller="Product" asp-action="ProductSearch" class="mb-5 ms-5">
+         <p>
 
-                        Search: <input type="text" name="searchtext" placeholder="Enter Search Text" id="demo" class="form-control-sm " />
+           Search: <input type="text" name="searchtext" placeholder="Enter Search Text" id="demo" class="form-control-sm " />
 
-                        <input type="submit" value="Search" class="btn btn-primary " />
-                    </p>
-                </form>
+          <input type="submit" value="Search" class="btn btn-primary " />
 
-                @if (Model == null)
-                {
-                    <script>
+         </p>
+      </form>
 
-                        alert("Please Enter Something In Search Box");
+      @if (Model == null)
+      {
+         <script>
 
-                    </script>
-                    <img src="https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/disappointed-face_1f61e.gif" alt="smily image" class="img-responsive center-block d-block mx-auto" height="90" width="90">
-                    <h2 class="text-center">No Result Found....!</h2>
-                }
-                else
-                {
-                        <div class="row ms-0">
-                                    @{
+           alert("Please Enter Something In Search Box");
 
+         </script>
 
-                                        @foreach (var item in Model)
-                                        {
-                                            <br />
-                                            <br />
-                                            <br />
+         <img src="https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/disappointed-face_1f61e.gif" alt="smily image" class="img-responsive center-block d-block mx-auto" height="90" width="90">
+         <h2 class="text-center">No Result Found....!</h2>
 
-                                            var count = 0;
+      }
 
-                                                @if (item.pimgUrl != null)
-                                                {
-
-                                                    string m1, m2, m3;
-
-                                                    var images = item.pimgUrl.Split(",");
-
-                                                    m1 = images[0];
-
-                                                        <div class="col-4 mt-5">
-
-                                                                <div class="card text-dark" style="width:400px;height:700px">
-                                                                    <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:400px;height:500px;">
-                                                                        <div class="card-body">
-                                                                            Model name: @Html.DisplayFor(modelItem => item.pName)<br>
-                                                                            Price: @Html.DisplayFor(modelItem => item.price)<br>
-                                                                            About: @Html.DisplayFor(modelItem => item.Specification)
-
-                                                                        </div>
-                                                                            <div class="card-footer">
-
-                                                                                        <div class="row">
-                                                                                                    <div class="col-4">
-
-                                                                                                                        @Html.ActionLink("Add Cart", // <-- Link text
-                                                                                                        "AddToCart","Cart",
-
-                                                                                                        // <-- Action Method Name
-                                                                                                        new { id=item.Id}, // <-- Route arguments
-                                                                                                        new {@class="btn btn-warning"} // <-- htmlArguments
-                                                                                                        )
-
-                                                                                                    </div>
-                                                                                                            <div class="col-4">
-                                                                                                            </div>
-                                                                                                   <div class="col-4">
+      else
+      {
+         <div class="row ms-0">
+        @{
 
 
-                                                                                                                        @Html.ActionLink("Details", // <-- Link text
-                                                                                                        "DetailsAction",
-                                                                                                        "Product",
-                                                                                                        // <-- Action Method Name
-                                                                                                        new { id=item.Id}, // <-- Route arguments
-                                                                                                        new {@class="btn btn-success ms-4", data_val="abc"}  // <-- htmlArguments
-                                                                                                        )
+            @foreach (var item in Model)
+            {
+               <br />
+               <br />
+               <br />
+              var count = 0;
 
-                                                                                                   </div>
-                                                                                        </div>
-                                                                            </div>
-                                                                </div>
+               @if (item.pimgUrl != null)
+               {
+                 string m1, m2, m3;
 
-                                                        </div>
-                                                }
+                 var images = item.pimgUrl.Split(",");
 
+                  m1 = images[0];
 
+                  <div class="col-3 mt-5">
 
-                                        }
-                                    }
+                     <div class="card text-dark ms-3 me-3" style="width:320px;height:600px">
+
+                       <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:320px;height:320px;" class="align-content-center">
+
+                        <div class="card-body">
+
+                          Model name: @Html.DisplayFor(modelItem => item.pName)<br>
+                          Price: @Html.DisplayFor(modelItem => item.price)<br>
+                          About: @Html.DisplayFor(modelItem => item.Specification)
+
                         </div>
-                }
-        </div>
+
+                        <div class="card-footer">
+
+                           <div class="row">
+
+                              <div class="col-6">
+
+                                @Html.ActionLink("Add Cart", // <-- Link text
+
+                                "AddToCart","Cart",
+
+                                 // <-- Action Method Name
+
+                                 new { id=item.Id}, // <-- Route arguments
+
+                                 new {@class="btn btn-warning"} // <-- htmlArguments
+                                 )
+
+                              </div>
+                                                                                                         
+                              <div class="col-6">
+
+                                @Html.ActionLink("Details", // <-- Link text
+
+                                "DetailsAction",
+
+                                "Product",
+
+                                 // <-- Action Method Name
+
+                                new { id=item.Id}, // <-- Route arguments
+
+                                new {@class="btn btn-success ms-5", data_val="abc"}  // <-- htmlArguments
+
+                                )
+
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                     </div>
+
+                  </div>
+
+               }
+
+
+
+            }
+         }
+         </div>
+
+      }
+
+   </div>
+
 </body>
 
