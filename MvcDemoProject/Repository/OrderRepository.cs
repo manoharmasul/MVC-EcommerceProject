@@ -29,7 +29,8 @@ namespace MvcDemoProject.Repository
             order.orderStatus = "pending";
             using (var connection = context.CreateConnection())
             {
-                await connection.ExecuteAsync(query, order);
+                var result= await connection.ExecuteAsync(query, order);
+                
             }
         }
 

@@ -4,7 +4,7 @@
     ViewData["Title"] = "ProductSearch";
 }
 <body>
-   <div class="container-fluid mt-3">
+    <div class="container-fluid">
 
 
       @if (ViewBag.num == -1)
@@ -44,7 +44,7 @@
 
       else
       {
-         <div class="row ms-0">
+            <div class="row justify-content-center">
         @{
 
 
@@ -61,13 +61,11 @@
 
                  var images = item.pimgUrl.Split(",");
 
-                  m1 = images[0];
+                  m1 = images[0];              
 
-                  <div class="col-3 mt-5">
+                     <div class="card text-dark mx-2 my-2" style="width:320px;height:600px">
 
-                     <div class="card text-dark ms-3 me-3" style="width:320px;height:600px">
-
-                       <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:320px;height:320px;" class="align-content-center">
+                       <img src="@Html.DisplayFor(modelItem => m1)" alt="Laptop Image" style="width:290px;height:320px;" class="align-content-center">
 
                         <div class="card-body">
 
@@ -120,7 +118,7 @@
 
                      </div>
 
-                  </div>
+               
 
                }
 

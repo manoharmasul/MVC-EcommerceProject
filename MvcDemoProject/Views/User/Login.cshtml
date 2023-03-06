@@ -8,8 +8,8 @@
 <p class="text-center text-warning bg-dark">You already have account on myshop.com</p>
 <hr />
 
-<div class="container-fluid">
-    <div class="row justify-content-center">
+
+<div class="row justify-content-center  container-fluid">
         <div class="col-sm-4 border p-2 mt-5">
             <form asp-action="Login">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -32,7 +32,7 @@
                             <a asp-action="Create" class="btn btn-primary mt-3">Register</a>
                         </div>
                         <div class="col-6"></div>
-                        <div class="col-3 text-end">
+                        <div class="col-3 ">
                             <input type="submit" value="Log In" class="btn btn-success mt-3 " />
                         </div>
 
@@ -51,7 +51,6 @@
 
      </div>
 
-    </div>
  
 
     @section Scripts {
